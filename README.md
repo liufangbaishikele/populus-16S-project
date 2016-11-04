@@ -60,7 +60,15 @@ Enrich_Endo_SRX1901982  trimmed_SRR3732273_1.fastq      trimmed_SRR3732273_2.fas
 ```
 
 #### Commands 
-
+```
+>module load mothur
+```
+```
+>mothur "Now get into an interactive conversation with mothur "
+````
+``
+mothur>make.contigs(inputdir=/data/home/fliu21/SRA_16S/populus_root_endosphere_microbiome/raw_data/,outputdir=/data/home/fliu21/SRA_16S/populus_root_endosphere_microbiome/analysis/02_make_contigs/,file=treatment.files,processors=8)
+```
 * make contigs
 * screen.seqs
 * unique.seqs
@@ -132,50 +140,6 @@ Otu00018        4958    Bacteria(100);"Proteobacteria"(100);Deltaproteobacteria(
 * LEfSe: Linear Discriminant Effect Size Analysis --look at the most difference taxon between treatment
 
 * Generate a Venn diagrams to see how much percent of the OTUs are shared between treatment
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
