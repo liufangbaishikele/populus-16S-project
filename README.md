@@ -19,6 +19,10 @@ These random sequences ahead forward primers and behind reverse primers are intr
 
 
 ```
+Primer sets--16S rRNA V4 region
+5’ GTGCCAGCMGCCGCGGTAA
+3’ GGACTACHVGGGTWTCTAAT
+
 conda install cutadapt -y 
 
 *Forward reads
