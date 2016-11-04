@@ -1,20 +1,26 @@
 # populus-16S-project
 
-#### Download raw-data from SRA database
+### Download raw-data from SRA database
 
-Sequence data
+* Sequence data
+
 
 ```
 fastq-dump –split-files SRR3732212 SRR3732224 SRR3732232 SRR3732240 SRR3732248 SRR3732257 SRR3732266 SRR3732268 SRR3732269 SRR3732270 SRR3732271 SRR3732273
 ```
-Metadata downloaded from [SRA-RunInfo Table link] (https://www.ncbi.nlm.nih.gov/Traces/study/WebEnv=NCID_1_2922414_130.14.18.97_5555_1478249302_1408550304_0MetA0_S_HStore&query_key=4)
 
-####sequence preprocessing using *cutadapt*-- trim off forward primers and reverse primers as well as the random sequences ahead the primer
+
+* Metadata downloaded from [SRA-RunInfo Table link] (https://www.ncbi.nlm.nih.gov/Traces/study/WebEnv=NCID_1_2922414_130.14.18.97_5555_1478249302_1408550304_0MetA0_S_HStore&query_key=4)
+
+
+### Sequence preprocessing --*cutadapt*
 
 These random sequences ahead forward primers and behind reverse primers are introduced during library preparation, which described in [Practical innovations for high-throughput amplicon sequencing] (http://www.nature.com/nmeth/journal/v10/n10/abs/nmeth.2634.html)
 
+
 ```
 conda install cutadapt -y 
+
 *Forward reads
 for read1 in SRR3732212_1.fastq SRR3732224_1.fastq SRR3732232_1.fastq SRR3732240_1.fastq SRR3732248_1.fastq SRR3732257_1.fastq SRR3732266_1.fastq SRR3732268_1.fastq SRR3732269_1.fastq SRR3732270_1.fastq SRR3732271_1.fastq SRR3732273_1.fastq
 do
@@ -28,9 +34,12 @@ do
         cutadapt -g GGACTACHVGGGTWTCTAAT --overlap=19 --error-rate=0.1 -o trimmed_$read2 $read2
         done
 ```
-####sequence processing--[MiSeq-SOP] (www.mothur.org/wiki/MiSeq_SOP)
 
-Here is the treatment table 
+
+### Sequence processing--[MiSeq-SOP] (www.mothur.org/wiki/MiSeq_SOP)
+
+#### Treatment table 
+
 ```
 Non_Rhizo_SRX1901989    trimmed_SRR3732212_1.fastq      trimmed_SRR3732212_2.fastq
 Non_Rhizo_SRX1901990    trimmed_SRR3732224_1.fastq      trimmed_SRR3732224_2.fastq
@@ -46,7 +55,7 @@ Enrich_Endo_SRX1901981  trimmed_SRR3732271_1.fastq      trimmed_SRR3732271_2.fas
 Enrich_Endo_SRX1901982  trimmed_SRR3732273_1.fastq      trimmed_SRR3732273_2.fastq
 ```
 
-Sequence processing command 
+#### Commands 
 
 * make contigs
 * screen.seqs
@@ -63,7 +72,7 @@ Sequence processing command
 * make.shared
 * classify.otu
 
-####OTU table--clusterred using similarity at 97%
+### OTU table--clusterred using similarity at 97%
 
 * OTU table
 ```
@@ -81,6 +90,7 @@ label   Group   numOtus Otu00001        Otu00002        Otu00003        Otu00004
 0.03    Non_Rhizo_SRX1901990    13408   572     195     1142    882     242     238     2246    315     530     205  ...
 0.03    Non_Rhizo_SRX1901991    13408   330     283     847     573     246     172     344     254     545     307  ...
 ```
+
 * OTU taxonomy
 
 ```
@@ -105,15 +115,19 @@ Otu00017        5008    Bacteria(100);"Proteobacteria"(100);"Proteobacteria"_unc
 Otu00018        4958    Bacteria(100);"Proteobacteria"(100);Deltaproteobacteria(100);Desulfuromonadales(100);Geobac$
 
 ```
-#### Export to local computer
+### Export to local computer
 
-*Intented analysis* 
+*Subsequent analysis* 
 
 * Barplot using relative abundance of OTU
+
 * Sample clustering using Heat map
-* NMDS and PcoA--bacterial community distribution between samples
+
+* NMDS and PCoA--bacterial community distribution between samples
+
 * LEfSe: Linear Discriminant Effect Size Analysis --look at the most difference taxon between treatment
-* Generate a Venn diagrams
+
+* Generate a Venn diagrams to see how much percent of the OTUs are shared between treatment
 
 
 
