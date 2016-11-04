@@ -65,8 +65,8 @@ Enrich_Endo_SRX1901982  trimmed_SRR3732273_1.fastq      trimmed_SRR3732273_2.fas
 ```
 ```
 >mothur "Now get into an interactive conversation with mothur "
-````
-``
+```
+```
 mothur>make.contigs(inputdir=/data/home/fliu21/SRA_16S/populus_root_endosphere_microbiome/raw_data/,outputdir=/data/home/fliu21/SRA_16S/populus_root_endosphere_microbiome/analysis/02_make_contigs/,file=treatment.files,processors=8)
 ```
 * make contigs
@@ -87,6 +87,7 @@ mothur>make.contigs(inputdir=/data/home/fliu21/SRA_16S/populus_root_endosphere_m
 ### OTU table--clusterred using similarity at 97%
 
 * OTU table
+
 ```
 label   Group   numOtus Otu00001        Otu00002        Otu00003        Otu00004        Otu00005        Otu00006   ...
 0.03    Enrich_Endo_SRX1901980  13408   7164    6737    2930    951     735     1919    10      1605    257     137  ...
