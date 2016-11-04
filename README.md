@@ -75,17 +75,17 @@ mothur>make.contigs(inputdir=/data/home/fliu21/SRA_16S/populus_root_endosphere_m
 * count.seqs -- generated a count table, with unique sequence counts in each sample
 * pcr.seqs -- generate a customized reference sequence targeted V4 region, using silva as the reference database.
 * align.seqs -- align unique sequences to reference 
-* filter.seqs -- to remove overhangs at both ends
-* precluster -- futhur de-noise sequence to allow up to 2bp difference between sequences
+* filter.seqs -- to remove overhangs at both ends -- 131327 sequences
+* precluster -- futhur de-noise sequence to allow up to 2bp difference between sequences -- 40131 sequences
 * chimera.uchime -- find chimeras
-* remove.seqs -- remove chimeras
+* remove.seqs -- remove chimeras--38655 sequences
 * classify -- classify sequences to taxonomy group
-* remove.lineage
-* cluster.split
-* make.shared
-* classify.otu
+* remove.lineage -- remove undisired sequences, i.e., chloroplast, mitochondria, Archaea, eukaryote and unknown --38301 left
+* cluster.split -- based on classification information to cluster sequences with similarity from 85 to 100% 
+* make.shared -- extract OTUs with similarity of 97% -- 13408 OTUs
+* classify.otu -- classify the OTUs to taxonomy.
 
-### OTU table--clusterred using similarity at 97%
+### OTU table
 
 * OTU table
 
