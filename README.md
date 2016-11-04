@@ -69,16 +69,17 @@ Enrich_Endo_SRX1901982  trimmed_SRR3732273_1.fastq      trimmed_SRR3732273_2.fas
 ```
 mothur>make.contigs(inputdir=/data/home/fliu21/SRA_16S/populus_root_endosphere_microbiome/raw_data/,outputdir=/data/home/fliu21/SRA_16S/populus_root_endosphere_microbiome/analysis/02_make_contigs/,file=treatment.files,processors=8)
 ```
-* make contigs
-* screen.seqs
-* unique.seqs
-* count.seqs
-* align.seqs
-* filter.seqs
-* precluster
-* chimera.uchime
-* remove.seqs
-* classify
+* make contigs -- get 1018667 contigs
+* screen.seqs -- contigs too short or too long are discarded, with 926176 (90.0%) being left.
+* unique.seqs -- 135675 unique sequences
+* count.seqs -- generated a count table, with unique sequence counts in each sample
+* pcr.seqs -- generate a customized reference sequence targeted V4 region, using silva as the reference database.
+* align.seqs -- align unique sequences to reference 
+* filter.seqs -- to remove overhangs at both ends
+* precluster -- futhur de-noise sequence to allow up to 2bp difference between sequences
+* chimera.uchime -- find chimeras
+* remove.seqs -- remove chimeras
+* classify -- classify sequences to taxonomy group
 * remove.lineage
 * cluster.split
 * make.shared
