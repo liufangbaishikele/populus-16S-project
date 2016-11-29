@@ -105,43 +105,259 @@ label   Group   numOtus Otu00001        Otu00002        Otu00003        Otu00004
 0.03    Non_Rhizo_SRX1901991    13408   330     283     847     573     246     172     344     254     545     307  ...
 ```
 
+### Sample table
+
+```
+Sample_ID	Protocol	Compartment
+Non_Rhizo_SRX1901989    	Non_enriched	Rhizosphere
+Non_Rhizo_SRX1901990   	Non_enriched	Rhizosphere
+Non_Rhizo_SRX1901991    	Non_enriched	Rhizosphere
+Non_Endo_SRX1901986     	Non_enriched	Endosphere
+Non_Endo_SRX1901987   	Non_enriched	Endosphere
+Non_Endo_SRX1901988    	Non_enriched	Endosphere
+Enrich_Rhizo_SRX1901983	Enriched_method	Rhizosphere
+Enrich_Rhizo_SRX1901984	Enriched_method	Rhizosphere
+Enrich_Rhizo_SRX1901985 	Enriched_method	Rhizosphere
+Enrich_Endo_SRX1901980 	Enriched_method	Endosphere
+Enrich_Endo_SRX1901981 	Enriched_method	Endosphere
+Enrich_Endo_SRX1901982 	Enriched_method	Endosphere
+
+```
+
 * OTU taxonomy
 
 ```
-OTU     Size    Taxonomy
-Otu00001        41783   Bacteria(100);"Actinobacteria"(100);Actinobacteria(100);Actinomycetales(100);Mycobacteriace$
-Otu00002        39789   Bacteria(100);Firmicutes(100);Clostridia(100);Clostridiales(100);Ruminococcaceae(100);Clost$
-Otu00003        21411   Bacteria(100);"Proteobacteria"(100);Alphaproteobacteria(100);Rhizobiales(100);Rhizobiales_u$
-Otu00004        14860   Bacteria(100);"Proteobacteria"(100);Alphaproteobacteria(100);Rhizobiales(100);Bradyrhizobia$
-Otu00005        9644    Bacteria(100);"Proteobacteria"(100);Alphaproteobacteria(100);Rhizobiales(100);Phyllobacteri$
-Otu00006        8709    Bacteria(100);"Proteobacteria"(100);Alphaproteobacteria(100);Rhizobiales(100);Rhizobiales_u$
-Otu00007        7888    Bacteria(100);"Proteobacteria"(100);Alphaproteobacteria(100);Sphingomonadales(100);Sphingom$
-Otu00008        7475    Bacteria(100);"Proteobacteria"(100);Alphaproteobacteria(100);Rhizobiales(100);Rhizobiales_u$
-Otu00009        7145    Bacteria(100);"Proteobacteria"(100);Alphaproteobacteria(100);Alphaproteobacteria_unclassifi$
-Otu00010        6831    Bacteria(100);"Verrucomicrobia"(100);Spartobacteria(100);Spartobacteria_order_incertae_sedi$
-Otu00011        5813    Bacteria(100);"Proteobacteria"(100);Alphaproteobacteria(100);Rhizobiales(100);Rhizobiaceae($
-Otu00012        5436    Bacteria(100);"Proteobacteria"(100);Betaproteobacteria(100);Burkholderiales(100);Burkholder$
-Otu00013        5368    Bacteria(100);"Proteobacteria"(100);Betaproteobacteria(100);Betaproteobacteria_unclassified$
-Otu00014        5179    Bacteria(100);"Actinobacteria"(100);Actinobacteria(100);Actinomycetales(100);Pseudonocardia$
-Otu00015        5170    Bacteria(100);"Proteobacteria"(100);Deltaproteobacteria(100);Deltaproteobacteria_unclassifi$
-Otu00016        5151    Bacteria(100);"Acidobacteria"(100);Acidobacteria_Gp6(100);Acidobacteria_Gp6_order_incertae_$
-Otu00017        5008    Bacteria(100);"Proteobacteria"(100);"Proteobacteria"_unclassified(100);"Proteobacteria"_unc$
-Otu00018        4958    Bacteria(100);"Proteobacteria"(100);Deltaproteobacteria(100);Desulfuromonadales(100);Geobac$
+OTU	Kindom	Phylum	Class	Order	Family	Genus
+Otu00001	Bacteria	Actinobacteria	Actinobacteria	Actinomycetales	Mycobacteriaceae	Mycobacterium
+Otu00002	Bacteria	Firmicutes	Clostridia	Clostridiales	Ruminococcaceae	Clostridium_III
+Otu00003	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Rhizobiales_unclassified	Rhizobiales_unclassified
+Otu00004	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Bradyrhizobiaceae	Bradyrhizobium
+Otu00005	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Phyllobacteriaceae	Phyllobacteriaceae_unclassified
+Otu00006	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Rhizobiales_unclassified	Rhizobiales_unclassified
+Otu00007	Bacteria	Proteobacteria	Alphaproteobacteria	Sphingomonadales	Sphingomonadaceae	Sphingomonas
+Otu00008	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Rhizobiales_unclassified	Rhizobiales_unclassified
+Otu00009	Bacteria	Proteobacteria	Alphaproteobacteria	Alphaproteobacteria_unclassified	Alphaproteobacteria_unclassified	Alphaproteobacteria_unclassified
+Otu00010	Bacteria	Verrucomicrobia	Spartobacteria	Spartobacteria_order_incertae_sedis	Spartobacteria_family_incertae_sedis	Spartobacteria_genera_incertae_sedis
+Otu00011	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Rhizobiaceae	Rhizobium
+Otu00012	Bacteria	Proteobacteria	Betaproteobacteria	Burkholderiales	Burkholderiaceae	Burkholderia
+Otu00013	Bacteria	Proteobacteria	Betaproteobacteria	Betaproteobacteria_unclassified	Betaproteobacteria_unclassified	Betaproteobacteria_unclassified
+Otu00014	Bacteria	Actinobacteria	Actinobacteria	Actinomycetales	Pseudonocardiaceae	Pseudonocardia
 
 ```
-### Export to local computer
+
+After OTU calling with 97% similarity, I traced back and summarized sequences counts from each sample 
+
+```
+Enrich_Endo_SRX1901980  90522
+Enrich_Endo_SRX1901981  36118
+Enrich_Endo_SRX1901982  77382
+Enrich_Rhizo_SRX1901983 95813
+Enrich_Rhizo_SRX1901984 72603
+Enrich_Rhizo_SRX1901985 87197
+Non_Endo_SRX1901986     31058
+Non_Endo_SRX1901987     83905
+Non_Endo_SRX1901988     76715
+Non_Rhizo_SRX1901989    90546
+Non_Rhizo_SRX1901990    81344
+Non_Rhizo_SRX1901991    78320
+
+```
+
+*Generate Subsample
+
+Consequently, 31058 (lowest counts) are used for sumsample procedur
+```
+mothur > sub.sample(shared=treatment.0.03.shared,size=31058)
+
+```
+* Rarefaction analysis
+```
+mothur>rarefaction.single(shared=treatment.0.03.shared,calc=sobs-chao-ace,freq=100)
+```
+output file--treatment.0.03.groups.rarefaction
+
+```
+numsampled	0.03-Enrich_Endo_SRX1901980	0.03-Enrich_Endo_SRX1901981	0.03-Enrich_Endo_SRX1901982	0.03-Enrich_Rhizo_SRX1901983	0.03-Enrich_Rhizo_SRX1901984	0.03-Enrich_Rhizo_SRX1901985
+1	1	1	1	1	1	1
+100	69.728	58.536	67.704	79.688	69.36	64.664
+200	123.112	100.408	118.904	141.392	120.928	112.672
+300	168.832	136.032	162.856	194.544	165.32	154.016
+400	210.672	167.928	201.84	242.568	205.688	190.792
+500	248.112	196.44	237.4	287.264	242.232	224
+600	282.632	223.696	270.488	327.216	276.088	255.368
+700	315.312	248.016	301.504	366.16	308.152	284.176
+800	346.12	271.208	329.56	402.76	337.888	311.832
+900	374.936	292.712	356.904	435.76	366.976	338.432
+1000	402.488	313.168	382.768	468.616	394.416	363.728
+1100	429.56	333.4	407.272	499.608	419.856	387.656
+1200	454.848	352.336	430.624	530.304	444.616	410.624
+1300	479.656	370.056	452.856	559.384	468.432	433.456
+1400	503.344	387.408	473.984	587.424	490.96	455.64
+1500	526	403.888	494.528	614.224	513.512	476.52
+1600	548.2	419.664	514.48	640.064	535.392	496.608
+
+```
+ 
+* Linear Discriminant Effect Size Analysis (LEfSe)-mothur built in software-was used to compare OTU abundance between treatments
+ 
+ Output summary
+ > head treatment.subsample.0.03.lefse_summary
+
+```
+OTU             LogMaxMean      Class               LDA          p-Value
+Otu00001        4.97212        Enrich_Rhizo    4.64003        0.0396024
+Otu00002        5.11937        Enrich_Endo     4.83162        0.0153061
+Otu00003        4.65756        Enrich_Rhizo    4.23549        0.0216228
+Otu00004        4.35499        -
+Otu00005        4.39507        Enrich_Rhizo    4.01493        0.0187854
+Otu00006        4.25342        Enrich_Endo     3.89033        0.0155644
+Otu00007        4.03287         -
+Otu00008        4.03027         -
+Otu00009        4.31468        Non_Endo        3.95786         0.0498705
+
+```
+### Data transfered to local computer using filezilla
+
+### Further data exploration using R packages
 
 *Subsequent analysis* 
 
-* Barplot using relative abundance of OTU
+* Stacked barplot using relative abundance of OTUs
 
 * Sample clustering using Heat map
 
-* NMDS and PCoA--bacterial community distribution between samples
+* NMDS --bacterial community distribution between samples based on Bray-Curtis distance
 
-* LEfSe: Linear Discriminant Effect Size Analysis --look at the most difference taxon between treatment
+Detailed R code:
 
-* Generate a Venn diagrams to see how much percent of the OTUs are shared between treatment
+source('http://bioconductor.org/biocLite.R')
+biocLite('phyloseq')
+  library('phyloseq')                    #packageVersion('phyloseq')
+  library(ggplot2)                       #packageVersion('ggplot2')
+  library(plyr)                          #packageVersion("plyr")
+  library(ape)                           #Used for tree file reading and for plot.tree("abc.tree")#packageVersion("ape")
+  library(scales)
+  
+#-----Raw data import---------#
+
+setwd('G:\\UT\\I Love my project\\16S_sra_practice\\EPP622 populus project\\OTU table and taxonomy table generated from mothur')
+
+   #--- OTU table ----#
+
+    OTU_raw=read.csv('OTU_97_similarity.csv',head=TRUE)
+    otu=OTU_raw[,c(5:16)]
+    rownames(otu)=OTU_raw[,1]
+    
+    #--- taxonomy table
+    
+    Taxonomy_raw<-read.csv('OTU_taxonomy.csv',h=TRUE)
+    tax<-Taxonomy_raw[,2:7]
+    rownames(tax)=OTU_raw[,1]
+    
+    #--- sample table
+    
+    sample_data_raw<-read.csv("sample_data.csv",h=TRUE)
+    sample<-sample_data_raw[,2:3]
+    #rownames(sample)<-sample_data_raw[,1]
+    #str(rownames(sample))
+    rownames(sample)<-colnames(otu) ## Here from the excel dataset could no see the difference of sample name is different, there are extrac space in sampledata set
+    
+#check data type to fit for phyloseq class types
+    
+   class(sample) ## data frame, do not need to change format
+    class(otu)# data frame need change to matrix
+    class(tax)# data frame need change to matrix
+    otu<-as.matrix(otu)
+    tax<-as.matrix(tax)
+
+##-----------gernerate experimental level class object------------
+    
+
+   library(phyloseq)
+    OTU=otu_table(otu,taxa_are_rows=TRUE)
+    TAX=tax_table(tax)
+    SAMPLE<-sample_data(sample)
+    OTU_TAX_SAMPLE<-phyloseq(OTU,SAMPLE,TAX)
+
+#------construct integerated dataset---------
+
+   melt_data<-psmelt(OTU_TAX_SAMPLE)
+    colnames(melt_data)
+    head(melt_data)
+      
+#----Calculate relative abundance of otu count in each sample-----#
+
+   r_OTU_TAX_SAMPLE<-transform_sample_counts(OTU_TAX_SAMPLE,function(OTU) OTU/sum(OTU))
+    head(otu_table(r_OTU_TAX_SAMPLE))
+    sum(otu_table(r_OTU_TAX_SAMPLE)[,2]) # sum of the OTU proportion in sample one
+    
+    r_melt_data<-psmelt(r_OTU_TAX_SAMPLE)
+    colnames(r_melt_data)
+    head(r_melt_data)
+
+#-----Construct dataset for stacked barplot at phylum level using r_melt_data------
+
+   phylum_Enrich_Endo_SRX1901980<-plyr::ddply(subset(r_melt_data,Sample=="Enrich_Endo_SRX1901980"),.(Phylum),summarize,otu_richness_1980=length(Phylum),proportion_1980=sum(Abundance))
+    phylum_Enrich_Endo_SRX1901981<-plyr::ddply(subset(r_melt_data,Sample=="Enrich_Endo_SRX1901981"),.(Phylum),summarize,otu_richness_1981=length(Phylum),proportion_1981=sum(Abundance))
+    phylum_Enrich_Endo_SRX1901982<-plyr::ddply(subset(r_melt_data,Sample=="Enrich_Endo_SRX1901982"),.(Phylum),summarize,otu_richness_1982=length(Phylum),proportion_1982=sum(Abundance))
+    
+    phylum_Enrich_Rhizo_SRX1901983<-plyr::ddply(subset(r_melt_data,Sample=="Enrich_Rhizo_SRX1901983"),.(Phylum),summarize,otu_richness_1983=length(Phylum),proportion_1983=sum(Abundance))
+    phylum_Enrich_Rhizo_SRX1901984<-plyr::ddply(subset(r_melt_data,Sample=="Enrich_Rhizo_SRX1901983"),.(Phylum),summarize,otu_richness_1984=length(Phylum),proportion_1984=sum(Abundance))
+    phylum_Enrich_Rhizo_SRX1901985<-plyr::ddply(subset(r_melt_data,Sample=="Enrich_Rhizo_SRX1901983"),.(Phylum),summarize,otu_richness_1985=length(Phylum),proportion_1985=sum(Abundance))
+    
+    phylum_Non_Endo_SRX1901986<-plyr::ddply(subset(r_melt_data,Sample=="Non_Endo_SRX1901986"),.(Phylum),summarize,otu_richness_1986=length(Phylum),proportion_1986=sum(Abundance))
+    phylum_Non_Endo_SRX1901987<-plyr::ddply(subset(r_melt_data,Sample=="Non_Endo_SRX1901987"),.(Phylum),summarize,otu_richness_1987=length(Phylum),proportion_1987=sum(Abundance))
+    phylum_Non_Endo_SRX1901988<-plyr::ddply(subset(r_melt_data,Sample=="Non_Endo_SRX1901988"),.(Phylum),summarize,otu_richness_1988=length(Phylum),proportion_1988=sum(Abundance))
+    
+    phylum_Non_Rhizo_SRX1901989<-plyr::ddply(subset(r_melt_data,Sample=="Non_Rhizo_SRX1901989"),.(Phylum),summarize,otu_richness_1989=length(Phylum),proportion_1989=sum(Abundance))
+    phylum_Non_Rhizo_SRX1901990<-plyr::ddply(subset(r_melt_data,Sample=="Non_Rhizo_SRX1901990"),.(Phylum),summarize,otu_richness_1990=length(Phylum),proportion_1990=sum(Abundance))
+    phylum_Non_Rhizo_SRX1901991<-plyr::ddply(subset(r_melt_data,Sample=="Non_Rhizo_SRX1901991"),.(Phylum),summarize,otu_richness_1991=length(Phylum),proportion_1991=sum(Abundance))
+    
+    phylum_proportion_and_richness<-cbind(phylum_Enrich_Endo_SRX1901980,phylum_Enrich_Endo_SRX1901981,phylum_Enrich_Endo_SRX1901982,phylum_Enrich_Rhizo_SRX1901983,phylum_Enrich_Rhizo_SRX1901984,phylum_Enrich_Rhizo_SRX1901985,phylum_Non_Endo_SRX1901986,phylum_Non_Endo_SRX1901987,phylum_Non_Endo_SRX1901988,phylum_Non_Rhizo_SRX1901989,phylum_Non_Rhizo_SRX1901990,phylum_Non_Rhizo_SRX1901991)
+    Phylum_richness<-phylum_proportion_and_richness[,c(1,2,5,8,11,14,17,20,23,26,29,32,35)]
+    phylum_proportion<-phylum_proportion_and_richness[,c(1,3,6,9,12,15,18,21,24,27,30,33,36)]
+    
+    library(reshape2)
+    library(scales)
+    melt_phylum<-melt(phylum_proportion,id.vars="Phylum")
+    head(melt_phylum)
+    ggplot(melt_phylum,aes(x=variable,y=value,fill=Phylum))+geom_bar(position='stack',stat="identity",width=0.7)+scale_y_continuous(labels=percent_format())+scale_x_discrete(labels=sample_names(OTU_TAX_SAMPLE))+
+    theme(axis.text.x=element_text(size = 13,angle=270))+theme(axis.text.y=element_text(size = 13))+xlab("Sample ID")+ylab("Relative abundance")+#Change the ticks labels
+    theme(axis.title.x=element_text(size = 13,face="bold"))+theme(axis.title.y=element_text(size = 13,face="bold",angle=90))+# change the axis labels
+    ggtitle("Relative abundance of phylum")
+
+##------rarefaction curve----------##
+
+ 
+   library(reshape2)
+    rarefaction_intergrated<-melt(rarefaction,id.vars="numsampled")
+    head(rarefaction_intergrated)
+  ggplot(rarefaction_intergrated,aes(x=numsampled,y=value,colour=variable))+geom_point()+geom_line()+theme(legend.position="top")#+xlim(0,32000)
+
+##------Plot heat map using top 500 OTUs----------##
+    sub_r_OTU_TAX_SAMPLE=prune_taxa(names(sort(taxa_sums(r_OTU_TAX_SAMPLE),TRUE)[1:500]),r_OTU_TAX_SAMPLE)# 0.003563
+    plot_heatmap(sub_r_OTU_TAX_SAMPLE)+scale_x_discrete("Sample", labels = c("Enrich_Endo_SRX1901980" = "Enrich_Endo","Enrich_Endo_SRX1901981" = "Enrich_Endo", "Enrich_Endo_SRX1901982" = "Enrich_Endo","Enrich_Rhizo_SRX1901983" = "Enrich_Rhizo","Enrich_Rhizo_SRX1901984" = "Enrich_Rhizo","Enrich_Rhizo_SRX1901985"="Enrich_Rhizo","Non_Endo_SRX1901986"="Non_Endo","Non_Endo_SRX1901987"="Non_Endo","Non_Endo_SRX1901988"="Non_Endo","Non_Rhizo_SRX1901989"="Non_Rhizo","Non_Rhizo_SRX1901990"="Non_Rhizo","Non_Rhizo_SRX1901991"="Non_Rhizo"))+
+    theme(axis.title.x=element_text(size = 13,face="bold"))+theme(axis.title.y=element_text(size = 13,face="bold",angle=90))
+
+#--------------Here is ready for MDS analysis and plot--Based on OTU relative abundance--------------------#
+bray_r<-distance(r_OTU_TAX_SAMPLE,method="bray")
+bray_r_PCoA<-ordinate(r_OTU_TAX_SAMPLE,"PCoA",distance="bray")
+plot_ordination(r_OTU_TAX_SAMPLE,bray_r_PCoA,color="Protocol",shape="Compartment")+geom_point(size=4)+
+  xlab(paste("PCoA1",round(bray_r_PCoA$values$Relative_eig[1]*100,digits=2),"%",sep=" "))+ylab(paste("PCoA2",round(bray_r_PCoA$values$Relative_eig[2]*100,digits=2),"%",sep=""))+
+  theme(axis.title.x=element_text(size = rel(1.3)))+theme(axis.title.y=element_text(size = rel(1.3),angle=90))+
+  ggtitle("PCoA on Bray-curtis distance using relative abundance") + theme(plot.title = element_text(face="bold",size=rel(1.5))) 
+
+##---------Sample clustering tree visualization in R------##
+library(ape)
+phylogenetic_tree<-read.tree("treatment_0.thetayc.0.03.lt.tre")
+#This above cluster tree of samples calculated based on thetayc distance
+phylogenetic_tree
+plot(phylogenetic_tree)
+
+
+
+
+
 
 
 
