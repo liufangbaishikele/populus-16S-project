@@ -201,6 +201,7 @@ numsampled	0.03-Enrich_Endo_SRX1901980	0.03-Enrich_Endo_SRX1901981	0.03-Enrich_E
 * Linear Discriminant Effect Size Analysis (LEfSe)-mothur built in software-was used to compare OTU abundance between treatments
  
  Output summary
+ 
  > head treatment.subsample.0.03.lefse_summary
 
 ```
@@ -230,7 +231,7 @@ Otu00009        4.31468        Non_Endo        3.95786         0.0498705
 
 ##  Detailed R cod  ##
 
-
+```
 source('http://bioconductor.org/biocLite.R')
 biocLite('phyloseq')
   library('phyloseq')                    #packageVersion('phyloseq')
@@ -238,52 +239,55 @@ biocLite('phyloseq')
   library(plyr)                          #packageVersion("plyr")
   library(ape)                           #Used for tree file reading and for plot.tree("abc.tree")#packageVersion("ape")
   library(scales)
-  
+ ```
   ### Raw data import
+ ```
 setwd('G:\\UT\\I Love my project\\16S_sra_practice\\EPP622 populus project\\OTU table and taxonomy table generated from mothur')
-
+ ```
   ###   OTU table 
-
+```
     OTU_raw=read.csv('OTU_97_similarity.csv',head=TRUE)
     otu=OTU_raw[,c(5:16)]
     rownames(otu)=OTU_raw[,1]
-    
+```    
   ###  taxonomy table
-    
+  ```  
     Taxonomy_raw<-read.csv('OTU_taxonomy.csv',h=TRUE)
     tax<-Taxonomy_raw[,2:7]
     rownames(tax)=OTU_raw[,1]
-    
+  ```  
   ###--- sample table
-    
+   ``` 
     sample_data_raw<-read.csv("sample_data.csv",h=TRUE)
     sample<-sample_data_raw[,2:3]
     rownames(sample)<-colnames(otu)
+    ```
   ## check data type to fit for phyloseq class types
-    
+    ```
    class(sample) 
     class(otu)
     class(tax)
     otu<-as.matrix(otu)
     tax<-as.matrix(tax)
-
+```
 ### gernerate experimental level class object
     
-
+```
    library(phyloseq)
     OTU=otu_table(otu,taxa_are_rows=TRUE)
     TAX=tax_table(tax)
     SAMPLE<-sample_data(sample)
     OTU_TAX_SAMPLE<-phyloseq(OTU,SAMPLE,TAX)
-
+```
 ### construct integerated dataset
 
+```
    melt_data<-psmelt(OTU_TAX_SAMPLE)
     colnames(melt_data)
     head(melt_data)
-      
+```      
 ### Calculate relative abundance of otu count in each sample
-
+```
    r_OTU_TAX_SAMPLE<-transform_sample_counts(OTU_TAX_SAMPLE,function(OTU) OTU/sum(OTU))
     head(otu_table(r_OTU_TAX_SAMPLE))
     sum(otu_table(r_OTU_TAX_SAMPLE)[,2]) 
@@ -291,9 +295,9 @@ setwd('G:\\UT\\I Love my project\\16S_sra_practice\\EPP622 populus project\\OTU 
     r_melt_data<-psmelt(r_OTU_TAX_SAMPLE)
     colnames(r_melt_data)
     head(r_melt_data)
-
+```
 ### Construct dataset for stacked barplot at phylum level using r_melt_data
-
+```
    phylum_Enrich_Endo_SRX1901980<-plyr::ddply(subset(r_melt_data,Sample=="Enrich_Endo_SRX1901980"),.(Phylum),summarize,otu_richness_1980=length(Phylum),proportion_1980=sum(Abundance))
     phylum_Enrich_Endo_SRX1901981<-plyr::ddply(subset(r_melt_data,Sample=="Enrich_Endo_SRX1901981"),.(Phylum),summarize,otu_richness_1981=length(Phylum),proportion_1981=sum(Abundance))
     phylum_Enrich_Endo_SRX1901982<-plyr::ddply(subset(r_melt_data,Sample=="Enrich_Endo_SRX1901982"),.(Phylum),summarize,otu_richness_1982=length(Phylum),proportion_1982=sum(Abundance))
@@ -322,36 +326,43 @@ setwd('G:\\UT\\I Love my project\\16S_sra_practice\\EPP622 populus project\\OTU 
     theme(axis.text.x=element_text(size = 13,angle=270))+theme(axis.text.y=element_text(size = 13))+xlab("Sample ID")+ylab("Relative abundance")+#Change the ticks labels
     theme(axis.title.x=element_text(size = 13,face="bold"))+theme(axis.title.y=element_text(size = 13,face="bold",angle=90))+# change the axis labels
     ggtitle("Relative abundance of phylum")
-
+```
 ### rarefaction curve
 
- 
+ ```
    library(reshape2)
     rarefaction_intergrated<-melt(rarefaction,id.vars="numsampled")
     head(rarefaction_intergrated)
   ggplot(rarefaction_intergrated,aes(x=numsampled,y=value,colour=variable))+geom_point()+geom_line()+theme(legend.position="top")#+xlim(0,32000)
-
+```
 ### Plot heat map using top 500 OTUs
+
+```
     sub_r_OTU_TAX_SAMPLE=prune_taxa(names(sort(taxa_sums(r_OTU_TAX_SAMPLE),TRUE)[1:500]),r_OTU_TAX_SAMPLE)# 0.003563
     plot_heatmap(sub_r_OTU_TAX_SAMPLE)+scale_x_discrete("Sample", labels = c("Enrich_Endo_SRX1901980" = "Enrich_Endo","Enrich_Endo_SRX1901981" = "Enrich_Endo", "Enrich_Endo_SRX1901982" = "Enrich_Endo","Enrich_Rhizo_SRX1901983" = "Enrich_Rhizo","Enrich_Rhizo_SRX1901984" = "Enrich_Rhizo","Enrich_Rhizo_SRX1901985"="Enrich_Rhizo","Non_Endo_SRX1901986"="Non_Endo","Non_Endo_SRX1901987"="Non_Endo","Non_Endo_SRX1901988"="Non_Endo","Non_Rhizo_SRX1901989"="Non_Rhizo","Non_Rhizo_SRX1901990"="Non_Rhizo","Non_Rhizo_SRX1901991"="Non_Rhizo"))+
     theme(axis.title.x=element_text(size = 13,face="bold"))+theme(axis.title.y=element_text(size = 13,face="bold",angle=90))
+```
+
 
 ## Here is ready for MDS analysis and plot--Based on OTU relative abundance
 
-
+```
 bray_r<-distance(r_OTU_TAX_SAMPLE,method="bray")
 bray_r_PCoA<-ordinate(r_OTU_TAX_SAMPLE,"PCoA",distance="bray")
 plot_ordination(r_OTU_TAX_SAMPLE,bray_r_PCoA,color="Protocol",shape="Compartment")+geom_point(size=4)+
   xlab(paste("PCoA1",round(bray_r_PCoA$values$Relative_eig[1]*100,digits=2),"%",sep=" "))+ylab(paste("PCoA2",round(bray_r_PCoA$values$Relative_eig[2]*100,digits=2),"%",sep=""))+
   theme(axis.title.x=element_text(size = rel(1.3)))+theme(axis.title.y=element_text(size = rel(1.3),angle=90))+
   ggtitle("PCoA on Bray-curtis distance using relative abundance") + theme(plot.title = element_text(face="bold",size=rel(1.5))) 
+```
 
 ## Sample clustering tree visualization in R
+
+```
 library(ape)
 phylogenetic_tree<-read.tree("treatment_0.thetayc.0.03.lt.tre")
 phylogenetic_tree
 plot(phylogenetic_tree)
-
+```
 
 
 
