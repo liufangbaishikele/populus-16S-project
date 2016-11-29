@@ -228,7 +228,8 @@ Otu00009        4.31468        Non_Endo        3.95786         0.0498705
 
 * NMDS --bacterial community distribution between samples based on Bray-Curtis distance
 
-Detailed R code:
+#----------Detailed R code------------#
+
 
 source('http://bioconductor.org/biocLite.R')
 biocLite('phyloseq')
@@ -238,23 +239,23 @@ biocLite('phyloseq')
   library(ape)                           #Used for tree file reading and for plot.tree("abc.tree")#packageVersion("ape")
   library(scales)
   
-#-----Raw data import---------#
+  ##-----Raw data import--------##
 
 setwd('G:\\UT\\I Love my project\\16S_sra_practice\\EPP622 populus project\\OTU table and taxonomy table generated from mothur')
 
-   #--- OTU table ----#
+  ##--- OTU table ----##
 
     OTU_raw=read.csv('OTU_97_similarity.csv',head=TRUE)
     otu=OTU_raw[,c(5:16)]
     rownames(otu)=OTU_raw[,1]
     
-    #--- taxonomy table
+    ##--- taxonomy table----###
     
     Taxonomy_raw<-read.csv('OTU_taxonomy.csv',h=TRUE)
     tax<-Taxonomy_raw[,2:7]
     rownames(tax)=OTU_raw[,1]
     
-    #--- sample table
+    ##--- sample table
     
     sample_data_raw<-read.csv("sample_data.csv",h=TRUE)
     sample<-sample_data_raw[,2:3]
@@ -279,23 +280,23 @@ setwd('G:\\UT\\I Love my project\\16S_sra_practice\\EPP622 populus project\\OTU 
     SAMPLE<-sample_data(sample)
     OTU_TAX_SAMPLE<-phyloseq(OTU,SAMPLE,TAX)
 
-#------construct integerated dataset---------
+##------construct integerated dataset---------
 
    melt_data<-psmelt(OTU_TAX_SAMPLE)
     colnames(melt_data)
     head(melt_data)
       
-#----Calculate relative abundance of otu count in each sample-----#
+##----Calculate relative abundance of otu count in each sample-----#
 
    r_OTU_TAX_SAMPLE<-transform_sample_counts(OTU_TAX_SAMPLE,function(OTU) OTU/sum(OTU))
     head(otu_table(r_OTU_TAX_SAMPLE))
-    sum(otu_table(r_OTU_TAX_SAMPLE)[,2]) # sum of the OTU proportion in sample one
+    sum(otu_table(r_OTU_TAX_SAMPLE)[,2]) 
     
     r_melt_data<-psmelt(r_OTU_TAX_SAMPLE)
     colnames(r_melt_data)
     head(r_melt_data)
 
-#-----Construct dataset for stacked barplot at phylum level using r_melt_data------
+##-----Construct dataset for stacked barplot at phylum level using r_melt_data------
 
    phylum_Enrich_Endo_SRX1901980<-plyr::ddply(subset(r_melt_data,Sample=="Enrich_Endo_SRX1901980"),.(Phylum),summarize,otu_richness_1980=length(Phylum),proportion_1980=sum(Abundance))
     phylum_Enrich_Endo_SRX1901981<-plyr::ddply(subset(r_melt_data,Sample=="Enrich_Endo_SRX1901981"),.(Phylum),summarize,otu_richness_1981=length(Phylum),proportion_1981=sum(Abundance))
