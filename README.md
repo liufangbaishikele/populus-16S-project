@@ -40,7 +40,7 @@ do
 ```
 
 
-### Sequence processing--[MiSeq-SOP] (www.mothur.org/wiki/MiSeq_SOP)
+### Sequence processing--[MiSeq-SOP] (https://www.mothur.org/wiki/MiSeq_SOP)
 
 #### Treatment table 
 
