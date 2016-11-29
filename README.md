@@ -10,7 +10,7 @@ fastq-dump –split-files SRR3732212 SRR3732224 SRR3732232 SRR3732240 SRR3732248
 ```
 
 
-* Metadata downloaded from [SRA-RunInfo Table link] (https://www.ncbi.nlm.nih.gov/Traces/study/WebEnv=NCID_1_2922414_130.14.18.97_5555_1478249302_1408550304_0MetA0_S_HStore&query_key=4)
+* Metadata downloaded from [SRA-RunInfo Table link] (https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP077616)
 
 
 ### Sequence preprocessing --*cutadapt*
