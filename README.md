@@ -60,15 +60,13 @@ Enrich_Endo_SRX1901982  trimmed_SRR3732273_1.fastq      trimmed_SRR3732273_2.fas
 ```
 
 #### Commands 
-```
->module load mothur
-```
-```
->mothur "Now get into an interactive conversation with mothur "
-```
-```
-mothur>make.contigs(inputdir=/data/home/fliu21/SRA_16S/populus_root_endosphere_microbiome/raw_data/,outputdir=/data/home/fliu21/SRA_16S/populus_root_endosphere_microbiome/analysis/02_make_contigs/,file=treatment.files,processors=8)
-```
+
+Except for a different treatment.file, the other parameters are set to be the same as MiSeq SOP. During each step, a corresponding directory were built to hold specific output from each step. This could help me to trace back the data and extract useful information for further analysis. Otherwise, we can altenatively use mothur batch file to accelerate the sequece analysis process.
+
+
+#### Read summary after each step
+
+
 * make contigs -- get 1018667 contigs
 * screen.seqs -- contigs too short or too long are discarded, with 926176 (90.0%) being left.
 * unique.seqs -- 135675 unique sequences
@@ -145,7 +143,7 @@ Otu00014	Bacteria	Actinobacteria	Actinobacteria	Actinomycetales	Pseudonocardiace
 
 ```
 
-After OTU calling with 97% similarity, I traced back and summarized sequences counts from each sample 
+After OTU calling at 97% similarity, I traced back and summarized sequences counts from each sample 
 
 ```
 Enrich_Endo_SRX1901980  90522
@@ -165,12 +163,14 @@ Non_Rhizo_SRX1901991    78320
 
 *Generate Subsample
 
-Consequently, 31058 (lowest counts) are used for sumsample procedur
+Based on the above count summary results, 31058 (lowest counts) are used for sumsample procedur
+
 ```
 mothur > sub.sample(shared=treatment.0.03.shared,size=31058)
 
 ```
 * Rarefaction analysis
+
 ```
 mothur>rarefaction.single(shared=treatment.0.03.shared,calc=sobs-chao-ace,freq=100)
 ```
@@ -220,7 +220,7 @@ Otu00009        4.31468        Non_Endo        3.95786         0.0498705
 
 ### Further data exploration using R packages
 
-*Subsequent analysis* 
+* Subsequent analysis 
 
 * Stacked barplot using relative abundance of OTUs
 
